@@ -1,6 +1,12 @@
 name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      testing:
+        description: 'Choose the browser you want to execute'
+        required: true
+        default: 'Chrome'
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
